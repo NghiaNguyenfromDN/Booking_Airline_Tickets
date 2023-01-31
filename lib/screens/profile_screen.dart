@@ -4,6 +4,7 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_application_2/Widgets/column_layout.dart';
 import 'package:flutter_application_2/Widgets/layout_builder_widget.dart';
+import 'package:flutter_application_2/infomation/Contact_page.dart';
 import 'package:flutter_application_2/infomation/user_info.dart';
 import 'package:flutter_application_2/main.dart';
 import 'package:flutter_application_2/utils/app_layout.dart';
@@ -303,13 +304,13 @@ class ProfileScreen extends StatelessWidget {
           GestureDetector(
             onTap: () => {
               Navigator.of(context).pushReplacement(
-                  MaterialPageRoute(builder: (context) => const MyApp())),
+                  MaterialPageRoute(builder: (context) => ContactPage())),
             },
             child: Container(
               alignment: Alignment.center,
               height: 20,
               child: Text(
-                "Quay về trang đăng nhập",
+                "Trang nhận xét",
                 style: Styles.textStyle.copyWith(
                   color: Styles.primaryColor,
                   fontWeight: FontWeight.w500,

@@ -10,6 +10,7 @@ import 'package:flutter_application_2/utils/app_layout.dart';
 import 'package:flutter_application_2/utils/app_styles.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
+import 'package:get/get_connect/http/src/utils/utils.dart';
 
 class UserInfoScreen extends StatefulWidget {
   const UserInfoScreen({Key? key}) : super(key: key);
@@ -19,9 +20,27 @@ class UserInfoScreen extends StatefulWidget {
 }
 
 class _EditScreenState extends State<UserInfoScreen> {
+  late TextEditingController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = TextEditingController();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        appBar: AppBar(
+          title: const Text('App đặt vé máy bay'),
+          backgroundColor: Colors.blue,
+        ),
         backgroundColor: Styles.bgColor,
         body: ListView(
           children: [
@@ -94,36 +113,40 @@ class _EditScreenState extends State<UserInfoScreen> {
                   )),
             ),
             const TextField(
-              decoration: InputDecoration(
-                  hintText: "Đổi tên đăng nhập",
-                  prefixIcon: Icon(
-                    Icons.sticky_note_2,
-                    color: Color.fromARGB(255, 0, 0, 0),
-                  )),
-            ),
+                obscureText: false,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Đổi Email',
+                )),
             const SizedBox(
               height: 10.0,
             ),
             const TextField(
-              decoration: InputDecoration(
-                  hintText: "Đổi mật khẩu",
-                  prefixIcon: Icon(
-                    Icons.phone_android,
-                    color: Color.fromARGB(255, 0, 0, 0),
-                  )),
-            ),
+                obscureText: true,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Đổi password',
+                )),
             Center(
               child: Container(
-                margin: const EdgeInsets.only(left: 20, right: 20, top: 20),
-                padding: const EdgeInsets.only(left: 20, right: 20),
-                child: const Text(
-                  'Xác nhận thay đổi ',
-                  style: TextStyle(
-                    color: Color.fromARGB(255, 255, 64, 64),
-                    fontSize: 18.0,
-                  ),
-                ),
-              ),
+                  margin: const EdgeInsets.only(left: 20, right: 20, top: 20),
+                  padding: const EdgeInsets.only(left: 20, right: 20),
+                  child: TextButton(
+                    onPressed: () => showDialog<String>(
+                      context: context,
+                      builder: (BuildContext context) => AlertDialog(
+                        title: const Text('Thông báo'),
+                        content: const Text('Thay đổi thành công'),
+                        actions: <Widget>[
+                          TextButton(
+                            onPressed: () => Navigator.pop(context, 'OK'),
+                            child: const Text('OK'),
+                          ),
+                        ],
+                      ),
+                    ),
+                    child: const Text('Xác nhận thay đổi'),
+                  )),
             ),
           ],
         ));

@@ -1,3 +1,7 @@
+import 'dart:math';
+
+import 'package:flutter/cupertino.dart';
+
 List<Map<String, dynamic>> hotelList = [
   {
     'image': 'hotel1.jpg',
@@ -44,4 +48,35 @@ List<Map<String, dynamic>> ticketList = [
     'departure_time': "04:00AM",
     'number': "30"
   },
+  
 ];
+
+final List<Movie> initialData = List.generate(
+    20,
+    (index) => Movie(
+        title: "From $index", duration: "${Random().nextInt(100) + .000} VND"));
+
+class MovieProvider with ChangeNotifier {
+  final List<Movie> _movies = initialData;
+  List<Movie> get movies => _movies;
+
+  final List<Movie> _myList = [];
+  List<Movie> get myList => _myList;
+
+  void addToList(Movie movie) {
+    _myList.add(movie);
+    notifyListeners();
+  }
+
+  void removeFromList(Movie movie) {
+    _myList.remove(movie);
+    notifyListeners();
+  }
+}
+
+class Movie {
+  final String title;
+  final String? duration;
+
+  Movie({required this.title, this.duration});
+}

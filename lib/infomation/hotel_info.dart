@@ -28,6 +28,10 @@ class HotelInfo extends StatelessWidget {
     }
 
     return Scaffold(
+        appBar: AppBar(
+          title: const Text('App đặt vé máy bay'),
+          backgroundColor: Colors.blue,
+        ),
         backgroundColor: Styles.bgColor,
         body: ListView(
           children: [
@@ -72,9 +76,16 @@ class HotelInfo extends StatelessWidget {
                 child: Container(
                     padding: const EdgeInsets.symmetric(
                         horizontal: 12, vertical: 12),
-                    child: const Text(
-                      "Trang thông tin khách sạn",
-                      style: TextStyle(color: Colors.black, fontSize: 17),
+                    decoration: BoxDecoration(
+                      color: Color(0xD91130CE),
+                      borderRadius:
+                          BorderRadius.circular(AppLayout.getWidth(10)),
+                    ),
+                    child: Center(
+                      child: Text(
+                        "Trang thông tin khách sạn",
+                        style: Styles.textStyle.copyWith(color: Colors.white),
+                      ),
                     )),
               ),
               Gap(AppLayout.getHeight(5)),
@@ -157,24 +168,16 @@ class HotelInfo extends StatelessWidget {
             GestureDetector(
               onTap: () => {},
               child: Container(
+                /*796 Sư Vạn Hạnh, p12, Q.10*/
                 alignment: Alignment.center,
                 height: 54,
                 decoration: BoxDecoration(
-                  gradient: const LinearGradient(colors: [
-                    (Color.fromARGB(255, 250, 251, 223)),
-                    (Color.fromARGB(255, 251, 242, 242))
-                  ], begin: Alignment.centerLeft, end: Alignment.centerRight),
-                  borderRadius: BorderRadius.circular(50),
-                  boxShadow: const [
-                    BoxShadow(
-                        offset: Offset(0, 10),
-                        blurRadius: 20,
-                        color: Color.fromARGB(255, 251, 250, 250))
-                  ],
+                  color: Color(0xD91130CE),
+                  borderRadius: BorderRadius.circular(AppLayout.getWidth(10)),
                 ),
                 child: const Text(
                   "Đặt khách sạn",
-                  style: TextStyle(color: Color.fromARGB(255, 255, 0, 0)),
+                  style: TextStyle(color: Color.fromARGB(255, 255, 255, 255)),
                 ),
               ),
             ),

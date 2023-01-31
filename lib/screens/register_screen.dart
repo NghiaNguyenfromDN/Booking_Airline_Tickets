@@ -41,9 +41,7 @@ class InitState extends State<RegisterScreen> {
                     alignment: Alignment.bottomCenter,
                     child: const Text(
                       'Trang Đăng Ký',
-                      style: TextStyle(
-                          fontSize: 25.0,
-                          color: Color.fromARGB(255, 255, 17, 0)),
+                      style: TextStyle(fontSize: 25.0, color: Colors.red),
                     ),
                   )
                 ],
@@ -63,13 +61,13 @@ class InitState extends State<RegisterScreen> {
                 ],
               ),
               alignment: Alignment.center,
-              child: const TextField(
-                obscureText: true,
-                cursorColor: Color.fromARGB(255, 40, 40, 250),
+              child: TextField(
+                obscureText: false,
+                cursorColor: Colors.black,
                 decoration: InputDecoration(
                     icon: Icon(
                       Icons.email,
-                      color: Colors.purple,
+                      color: Colors.purple.shade200,
                     ),
                     hintText: "Nhập Email vô",
                     enabledBorder: InputBorder.none,
@@ -81,7 +79,7 @@ class InitState extends State<RegisterScreen> {
               padding: const EdgeInsets.only(left: 20, right: 20),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(50),
-                color: Color.fromARGB(255, 254, 254, 254),
+                color: const Color.fromARGB(255, 254, 254, 254),
                 boxShadow: const [
                   BoxShadow(
                       offset: Offset(0, 10),
@@ -90,13 +88,13 @@ class InitState extends State<RegisterScreen> {
                 ],
               ),
               alignment: Alignment.center,
-              child: const TextField(
-                obscureText: true,
-                cursorColor: Color.fromARGB(255, 8, 8, 249),
+              child: TextField(
+                obscureText: false,
+                cursorColor: Colors.black,
                 decoration: InputDecoration(
                     icon: Icon(
                       Icons.person,
-                      color: Colors.purple,
+                      color: Colors.purple.shade200,
                     ),
                     hintText: "Nhập Họ Tên ",
                     enabledBorder: InputBorder.none,
@@ -108,7 +106,7 @@ class InitState extends State<RegisterScreen> {
               padding: const EdgeInsets.only(left: 20, right: 20),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(50),
-                color: Color.fromARGB(255, 255, 255, 255),
+                color: const Color.fromARGB(255, 255, 255, 255),
                 boxShadow: const [
                   BoxShadow(
                       offset: Offset(0, 10),
@@ -117,13 +115,13 @@ class InitState extends State<RegisterScreen> {
                 ],
               ),
               alignment: Alignment.center,
-              child: const TextField(
+              child: TextField(
                 obscureText: true,
-                cursorColor: Color.fromARGB(255, 0, 0, 24),
+                cursorColor: Colors.black,
                 decoration: InputDecoration(
                     icon: Icon(
                       Icons.lock_outline,
-                      color: Colors.purple,
+                      color: Colors.purple.shade200,
                     ),
                     hintText: "Nhập Password lần đầu",
                     enabledBorder: InputBorder.none,
@@ -144,13 +142,13 @@ class InitState extends State<RegisterScreen> {
                 ],
               ),
               alignment: Alignment.center,
-              child: const TextField(
+              child: TextField(
                 obscureText: true,
-                cursorColor: Color.fromARGB(255, 17, 17, 247),
+                cursorColor: Colors.black,
                 decoration: InputDecoration(
                     icon: Icon(
                       Icons.lock,
-                      color: Colors.purple,
+                      color: Colors.purple.shade200,
                     ),
                     hintText: "Nhập Password lần nữa",
                     enabledBorder: InputBorder.none,
@@ -160,7 +158,7 @@ class InitState extends State<RegisterScreen> {
             GestureDetector(
               onTap: () => {
                 Navigator.of(context).pushReplacement(
-                    MaterialPageRoute(builder: (context) => const MyApp())),
+                    MaterialPageRoute(builder: (context) => MyApp())),
               },
               child: Container(
                 margin: const EdgeInsets.only(left: 20, right: 20, top: 20),

@@ -52,7 +52,7 @@ class HomeScreen extends StatelessWidget {
                   ],
                 ),
                 const Gap(25),
-                Container(
+                /* Container(
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
                       color: Color.fromARGB(15, 110, 131, 205)),
@@ -68,7 +68,16 @@ class HomeScreen extends StatelessWidget {
                       )
                     ],
                   ),
-                ),
+                ),  */
+                const TextField(
+                    obscureText: false,
+                    decoration: InputDecoration(
+                      prefixIcon:
+                          Icon(FluentSystemIcons.ic_fluent_search_filled),
+                      iconColor: Colors.yellowAccent,
+                      border: OutlineInputBorder(),
+                      labelText: 'Tìm kiếm thông tin',
+                    )),
                 const Gap(40),
                 const AppDoubleTextWidget(
                   bigText: "Các chuyến bay",
